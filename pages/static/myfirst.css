@@ -1,0 +1,412 @@
+.appname {
+  color: white;
+  font-size: xx-large;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+
+.hideerror{
+  display: none;
+}
+
+.city {
+  border: 2px solid #444;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 400px;
+  max-width: 100%;
+  width: 100%;
+  margin: 20px auto;
+  color: white;
+  position: relative;
+}
+
+.error{
+  border: 1px solid red;
+}
+/* SEARCH BOX CSS */
+
+
+.searchcity {
+  color: white;
+  background-color: #222;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  padding: 15px;
+  margin: 20px auto;
+  text-align: center;
+}
+.searchcity label {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.searchcity input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: white;
+  transition: border-color 0.3s ease;
+}
+
+.searchcity input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px #007bff66;
+  background-color: #222;
+}
+/* CSS FOR SUBMIT BUTTON */
+
+.searchcity input[type="submit"] {
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button {
+  background-color: blue;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: green;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(100px); /* start 100px below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* end at original position */
+  }
+}
+
+.box {
+  animation: slideIn 1s ease forwards;
+}
+
+.searchcity input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.img { 
+  width:100%; 
+  height:100%;
+  border-radius:0px;
+  object-fit: cover;
+}
+
+.background-video {
+  position: absolute;         
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          
+  z-index: 0;                
+  pointer-events: none;     
+}
+
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    
+}
+
+
+.container {
+    left:28px;
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 4px;
+    margin: 10px 0;
+    background-color: #000;
+  }
+  
+  .bottom-left {
+    position: absolute;
+    bottom: 30px;
+    left: 26px;
+  }
+  
+  .top-left {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+  }
+  
+  .top-right {
+    position: absolute;
+    top: 18px;
+    right: 16px;
+  }
+  
+  .bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
+
+  .center-top {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-bottom {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-left {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+}
+
+.center-right {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+}
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+/*styling for the script part*/
+
+#temperatureactual {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; 
+  font-size: 2.5em; 
+  color: white;
+  top:190px;
+}
+
+
+#temperature,
+#updatedname {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; 
+  font-size: 1.2em; 
+  color: white; 
+}
+
+#description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; 
+  font-size: 1.2em; 
+  color: white; 
+  top:18px;
+}
+
+#temptext {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; 
+  font-size: 1.2em; 
+  color: white;
+  top:225px;
+  font-size:1.5em; 
+}
+
+.layer {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    z-index: 2;
+    position: absolute;
+    background: hsla(0, 0%, 0%, 0.358); 
+}
+
+/* Modal body styling */
+.modal-body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  font-size: 1rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+}
+
+/* Make each info line have some spacing */
+.modal-body p {
+  margin: 0.4rem 0;
+  padding: 0;
+}
+
+/* Bold the labels (like 'City:', 'Temperature:') */
+.modal-body p strong {
+  color: #007bff; /* Bootstrap primary blue or choose your color */
+  width: 120px;
+  display: inline-block; /* Keeps label and value aligned nicely */
+  font-weight: 600;
+}
+
+/* Optional: add a subtle border or shadow to modal-content */
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive font size for smaller screens */
+@media (max-width: 576px) {
+  .modal-body {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+
+.weather-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem; /* space between columns */
+  flex-wrap: wrap; /* for smaller screens */
+}
+
+.left-column, .right-column {
+  flex: 1 1 45%; /* each takes about 45% of width */
+  min-width: 250px; /* don’t get too narrow */
+}
+
+.modal-body p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #333;
+  color: #333;
+  display: flex;             
+  justify-content: flex-start; 
+  align-items: center;
+  white-space: nowrap;
+}
+
+.modal-body p strong {
+  color: #007bff;
+  width: 130px;
+  display: inline-block;
+  font-weight: 600;
+  flex: 0 0 130px;         
+  text-align: right;           
+  margin-right: 0.75rem;
+  white-space: nowrap;
+}
+
+.modal-body .card {
+  min-width: 200px;
+  flex: 1 1 30%;
+}
+
+.wind-clock-compass {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border: 2px solid #555;
+  border-radius: 50%;
+  margin: 10px auto 0;
+  background-color: #f9f9f9;
+}
+
+.wind-clock-compass {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border: 2px solid #555;
+  border-radius: 50%;
+  margin: 10px auto 0;
+  background-color: #f9f9f9;
+}
+
+.direction-label {
+  position: absolute;
+  font-weight: bold;
+  color: #333;
+  user-select: none;
+  font-size: 14px;
+}
+
+.north { top: 6px; left: 50%; transform: translateX(-50%); }
+.east { top: 50%; right: 6px; transform: translateY(-50%); }
+.south { bottom: 6px; left: 50%; transform: translateX(-50%); }
+.west { top: 50%; left: 6px; transform: translateY(-50%); }
+
+.center-dot {
+  width: 12px;
+  height: 12px;
+  background: #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+/* Container for arrow, positioned at center */
+.compass-arrow-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* zero size container to rotate around base */
+  width: 0;
+  height: 0;
+  transform-origin: center bottom;
+  /* rotation applied inline in JS */
+  z-index: 2;
+}
+
+/* The vertical line of the arrow */
+.compass-arrow-line {
+  position: absolute;
+  bottom: 0;    /* bottom aligns with container bottom (the rotation point) */
+  left: 50%;    /* center horizontally */
+  width: 4px;
+  height: 20px;
+  background: #007bff;
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+/* The arrowhead pointing up */
+.compass-arrow-head {
+  position: absolute;
+  bottom: 20px; /* place on top of the line */
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 14px solid #007bff;
+  transform: translateX(-50%);
+}
+
+
+.modal.fade .modal-dialog {
+  transition-duration: 600ms; /* double the default speed */
+}
