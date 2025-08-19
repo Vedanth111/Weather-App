@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
+OPENWEATHER_API_KEY = os.environ.get("OPENWEATHER_API_KEY", "")
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",   # <-- added for Render
