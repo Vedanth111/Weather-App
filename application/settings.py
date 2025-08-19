@@ -4,13 +4,21 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p+2j6@m_y&#+s2%mem-yxo6)5l+hfl(@o#d*#y8l34)yx7oze$'
+# ✅ Load from environment on Render, fallback only for local dev
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-dev-only")
 
 # SECURITY WARNING: don’t run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 # Allow local dev + Render
-ALLOWED_HOSTS = ["*", "localhost", "127.0.0.1", "weather-app-qbe6.onrender.com"]
+ALLOWED_HOSTS = [
+    "weather-app-qbe6.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
+# ✅ Use env var for your weather API key
+OPENWEATHER_API_KEY = os.environ.get("OPENWEATHER_API_KEY", "")
 
 # Application definition
 INSTALLED_APPS = [
@@ -23,11 +31,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
-OPENWEATHER_API_KEY = os.environ.get("OPENWEATHER_API_KEY", "")
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",   # <-- added for Render
+    "whitenoise.middleware.WhiteNoiseMiddleware",   # serve static on Render
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -81,12 +87,34 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"   # <-- collectstatic dumps files here
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"   # collectstatic dumps files here
+
+# ⚠️ Commented out because you don’t have a static/ folder
+# STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Use Whitenoise’s compressed storage for better performance
 STORAGES = {
     "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
+}
+
+# ✅ Log errors to console so they show in Render logs
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {"class": "logging.StreamHandler"},
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+    },
+    "loggers": {
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+    },
 }
 
 
