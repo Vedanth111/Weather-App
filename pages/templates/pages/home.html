@@ -25,7 +25,7 @@
   $(document).ready(function () {
     const errorDiv = $("#errorDisplay");
     const video = $("#weatherVideo")[0];
-    const STATIC_URL = "{% static '' %}";
+    const STATIC_URL = "{% static 'images/' %}";  // ✅ fixed
 
     /* -------------------------
        Error Handling Functions
@@ -67,7 +67,7 @@
       }
 
       // Dynamically set new video source
-      const newSrc = STATIC_URL + "images/" + videoName + "?v=" + new Date().getTime();
+      const newSrc = STATIC_URL + videoName + "?v=" + new Date().getTime();
       console.log("Setting video source to:", newSrc);
 
       const sourceElement = $("#weatherVideo source")[0];  
