@@ -10,7 +10,7 @@ SECRET_KEY = 'p+2j6@m_y&#+s2%mem-yxo6)5l+hfl(@o#d*#y8l34)yx7oze$'
 DEBUG = False
 
 # Allow local dev + Render
-ALLOWED_HOSTS = ["*", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*", "localhost", "127.0.0.1", "weather-app-qbe6.onrender.com"]
 
 # Application definition
 INSTALLED_APPS = [
